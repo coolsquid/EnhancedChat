@@ -2,12 +2,13 @@ package coolsquid.enhancedchat.config;
 
 import java.util.Set;
 
-import coolsquid.enhancedchat.EnhancedChat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.IModGuiFactory;
 import net.minecraftforge.fml.client.config.GuiConfig;
+
+import coolsquid.enhancedchat.EnhancedChat;
 
 public class ConfigGuiFactory implements IModGuiFactory {
 
@@ -16,17 +17,7 @@ public class ConfigGuiFactory implements IModGuiFactory {
 	}
 
 	@Override
-	public Class<? extends GuiScreen> mainConfigGuiClass() {
-		return Gui.class;
-	}
-
-	@Override
 	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
-		return null;
-	}
-
-	@Override
-	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
 		return null;
 	}
 

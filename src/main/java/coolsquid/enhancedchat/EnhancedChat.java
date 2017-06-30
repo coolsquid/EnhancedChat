@@ -6,12 +6,6 @@ import java.io.IOException;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-
-import coolsquid.enhancedchat.command.CommandEnhancedChat;
-import coolsquid.enhancedchat.command.CommandEnhancedChatClient;
-import coolsquid.enhancedchat.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.util.text.ITextComponent;
@@ -35,12 +29,20 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = EnhancedChat.MODID, name = EnhancedChat.NAME, version = EnhancedChat.VERSION, guiFactory = "coolsquid.enhancedchat.config.ConfigGuiFactory", updateJSON = "https://raw.githubusercontent.com/coolsquid/EnhancedChat/master/version.json", acceptableRemoteVersions = "*")
+import coolsquid.enhancedchat.command.CommandEnhancedChat;
+import coolsquid.enhancedchat.command.CommandEnhancedChatClient;
+import coolsquid.enhancedchat.config.ConfigManager;
+
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+
+@Mod(modid = EnhancedChat.MODID, name = EnhancedChat.NAME, version = EnhancedChat.VERSION, dependencies = EnhancedChat.DEPENDENCIES, guiFactory = "coolsquid.enhancedchat.config.ConfigGuiFactory", updateJSON = "https://raw.githubusercontent.com/coolsquid/EnhancedChat/master/version.json", acceptableRemoteVersions = "*")
 public class EnhancedChat {
 
 	public static final String MODID = "enhancedchat";
 	public static final String NAME = "EnhancedChat";
-	public static final String VERSION = "1.1.3";
+	public static final String VERSION = "1.1.4";
+	public static final String DEPENDENCIES = "required-after:forge@[14.21.1.2387,)";
 
 	@Mod.EventHandler
 	public void onInit(FMLPreInitializationEvent event) {
@@ -117,7 +119,8 @@ public class EnhancedChat {
 	public void onGuiOpen(InitGuiEvent.Pre event) {
 		if (event.getGui() != null && event.getGui() instanceof GuiChat && !ConfigManager.defaultChatText.isEmpty()) {
 			if (((String) ReflectionHelper.getPrivateValue(GuiChat.class, (GuiChat) event.getGui(), 5)).isEmpty()) {
-				ReflectionHelper.setPrivateValue(GuiChat.class, (GuiChat) event.getGui(), ConfigManager.defaultChatText, 5);
+				ReflectionHelper.setPrivateValue(GuiChat.class, (GuiChat) event.getGui(), ConfigManager.defaultChatText,
+						5);
 			}
 		}
 	}
