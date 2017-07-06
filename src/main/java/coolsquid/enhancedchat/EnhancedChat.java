@@ -36,13 +36,14 @@ import coolsquid.enhancedchat.config.ConfigManager;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-@Mod(modid = EnhancedChat.MODID, name = EnhancedChat.NAME, version = EnhancedChat.VERSION, dependencies = EnhancedChat.DEPENDENCIES, guiFactory = "coolsquid.enhancedchat.config.ConfigGuiFactory", updateJSON = "https://raw.githubusercontent.com/coolsquid/EnhancedChat/master/version.json", acceptableRemoteVersions = "*")
+@Mod(modid = EnhancedChat.MODID, name = EnhancedChat.NAME, version = EnhancedChat.VERSION, dependencies = EnhancedChat.DEPENDENCIES, updateJSON = EnhancedChat.UPDATE_JSON, guiFactory = "coolsquid.enhancedchat.config.ConfigGuiFactory", acceptableRemoteVersions = "*")
 public class EnhancedChat {
 
 	public static final String MODID = "enhancedchat";
 	public static final String NAME = "EnhancedChat";
 	public static final String VERSION = "1.1.4";
 	public static final String DEPENDENCIES = "required-after:forge@[14.21.1.2387,)";
+	public static final String UPDATE_JSON = "https://coolsquid.me/api/version/enhancedchat.json";
 
 	@Mod.EventHandler
 	public void onInit(FMLPreInitializationEvent event) {
